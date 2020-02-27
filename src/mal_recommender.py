@@ -53,6 +53,20 @@ class MALRecommender(object):
 
 
 	def get_fans(self, item, num_users=10, get_estimates=True):
+		"""
+		Parameters
+		----------
+		item : int
+
+		num_users : int
+
+		get_estimates : bool
+
+		Returns
+		-------
+		fans : DataFrame
+
+		"""
 		item_predictions = self.users.copy()
 		item_predictions["est"] = item_predictions["username"].apply(
 				lambda user: self.algo.predict(self._get_uid(user), item)[3])
