@@ -34,15 +34,19 @@ class MALRecommender(object):
 		Parameters
 		----------
 		user : str
-
+			The username of the user to get recommendations for.
 		num_titles : int
-
+			The number of title recommendations to return (the default is 10).
 		filter_completed : bool
+			Whether or not to filter titles the user has marked as completed
+			(the default is True).
+			Note:	When True, there is a delay of 4 seconds
+						per 300 titles on the user's completed list.
 
 		Returns
 		-------
 		recommendations : DataFrame
-
+			The pandas DataFrame of recommended titles.
 		"""
 		user = self._get_uid(user)
 		user_predictions = self.anime.reset_index()[["anime_id"]]
