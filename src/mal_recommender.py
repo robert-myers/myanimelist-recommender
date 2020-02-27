@@ -1,4 +1,3 @@
-import dill as pickle
 import pandas as pd
 import time
 
@@ -13,7 +12,7 @@ class MALRecommender(object):
 		super().__init__()
 		self.algo = algo
 		self.usernames = usernames # dictionary
-		self.anime = anime
+		self.anime = anime # DataFrame
 		self.users = pd.DataFrame(usernames).T.reset_index(
 		)[["index"]].rename(columns={"index": "username"})
 
