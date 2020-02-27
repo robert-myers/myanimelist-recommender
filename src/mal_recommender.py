@@ -30,6 +30,20 @@ class MALRecommender(object):
 			return "https://cdn.myanimelist.net/images/error/404_image.png"
 
 	def get_recommendations(self, user, num_titles=10, filter_completed=True):
+		"""
+		Parameters
+		----------
+		user : str
+
+		num_titles : int
+
+		filter_completed : bool
+
+		Returns
+		-------
+		recommendations : DataFrame
+
+		"""
 		user = self._get_uid(user)
 		user_predictions = self.anime.reset_index()[["anime_id"]]
 		if filter_completed:
