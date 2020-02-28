@@ -9,10 +9,20 @@ jikan = Jikan()
 class MALRecommender(object):
 
 	def __init__(self, algo, usernames, anime):
+		"""
+		Parameters
+		----------
+		algo : algorithm
+			The pre-trained prediction algorithm from the Surprise module.
+		usernames : dict
+			The dictionary of usernames with correct letter cases.
+		anime : DataFrame
+			The pandas DataFrame with a list of titles and their thumbnails.
+		"""
 		super().__init__()
 		self.algo = algo
-		self.usernames = usernames # dictionary
-		self.anime = anime # DataFrame
+		self.usernames = usernames
+		self.anime = anime
 		self.users = pd.DataFrame(usernames).T.reset_index(
 		)[["index"]].rename(columns={"index": "username"})
 
