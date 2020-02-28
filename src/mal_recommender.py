@@ -75,15 +75,17 @@ class MALRecommender(object):
 		Parameters
 		----------
 		item : int
-
+			The item id.
 		num_users : int
-
+			The number of users to return (the default is 10).
 		get_estimates : bool
+			Whether or not to return estimated ratings for the users
+			(the default is True).
 
 		Returns
 		-------
 		fans : DataFrame
-
+			The pandas DataFrame of users with the highest predicted scores for said item.
 		"""
 		item_predictions = self.users.copy()
 		item_predictions["est"] = item_predictions["username"].apply(
